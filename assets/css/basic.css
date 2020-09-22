@@ -1,0 +1,139 @@
+/* basic design start */
+
+.text_center {
+    text-align: center !important;
+}
+
+.text_justify {
+    text-align: justify !important;
+}
+
+.center_div {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    text-align: justify !important;
+}
+
+.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.sticky {
+    position: fixed;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+
+.hide {
+    display: none;
+}
+
+.horizontal {
+    display: flex;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.fc_blue {
+    color: blueviolet !important;
+}
+.fc_white {
+    color: white !important;
+}
+.fc_purple {
+    color: #039BE5 !important;
+}
+.fc_red {
+    color: #ED3B3B !important;
+}
+.fc_green {
+    color: green !important;
+}
+.bc_purple {
+    background-color: #039BE5;
+}
+.bc_red {
+    background-color: #ED3B3B;
+}
+.bc_green {
+    background-color: green;
+}
+
+.fs_9 {
+    font-size: 9px;
+}
+.fs_10 {
+    font-size: 10px;
+}
+.fs_12 {
+    font-size: 12px;
+}
+.fs_14 {
+    font-size: 14px;
+}
+
+.fs_16 {
+    font-size: 16px;
+}
+
+.fs_18 {
+    font-size: 18px;
+}
+
+.fs_20 {
+    font-size: 20px;
+}
+
+.profile_image {
+    display: block;
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.warning_text {
+    text-align:center;
+    color:black;
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: red;
+}
+
+/* basic desgn end */

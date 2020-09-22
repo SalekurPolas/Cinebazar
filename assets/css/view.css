@@ -1,0 +1,94 @@
+.view_box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.view_box .left {
+    flex: 1;
+}
+
+.view_box img {
+    width: auto;
+    height: 420px;
+    border-radius: 5px;
+}
+
+.view_box .right {
+    flex: 5;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+
+
+.modal_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0 , 0.6);
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.modal_active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    width: 30%;
+    height: 30%;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-around;
+}
+
+.modal i {
+    cursor: pointer;
+}
+
+.modal i:hover {
+    cursor: pointer;
+    color: blueviolet;
+}
+
+.modal button {
+    width: 30%;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #e69900;
+}
+
+.modal button:hover {
+    background-color: #a6af13;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    .view_box {
+        display: block;
+    }
+
+    .view_box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .view_box .right {
+        margin: 5px 0 0 0;
+    }
+}
