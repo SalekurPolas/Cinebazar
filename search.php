@@ -1,13 +1,6 @@
-<?php ob_start(); include_once('assets/php/database.php');
-    if(!isset($_SESSION['email'])){
-        header("location: register.php");
-    } else {
-        $user = $_SESSION['id'];
-        $search = $_POST['search'];
-
-        if ($search == null) {
-            header("location: ./");
-        }
+<?php include_once('config/config.php');
+    if(isset($_SESSION['email'])) {
+        header("location: ./");
     }
 ?>
 

@@ -1,6 +1,13 @@
-<?php include_once('config/config.php');
+<?php include_once('api/app.php');
     if(isset($_SESSION['email'])) {
-        header("location: ./");
+        header('location: ./');
+    } else if(isset($_GET['recAuth'])) {
+        $response = json_decode(GetCredentialById($_GET['recAuth']));
+        if(!$response->status) {
+            header("location: 404?title=invalid_request&message=credential_not_found");
+        }
+    } else {
+        header("location: 404?title=invalid_request&message=credential_not_found");
     }
 ?>
 
@@ -13,8 +20,8 @@
     <meta name="author" content="Salekur Rahaman"/>
     <meta name="description" content=""/>
     <meta name="keywords" content="">
-    <title>Login - Cinebazar</title>
-
+    <title>Create Password - Cinebazar</title>
+    
     <!-- css, js and font design-->
     <link rel="icon" href="assets/res/images/logo/icon_circle.png">
     <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.css">
@@ -22,29 +29,28 @@
     <link rel="stylesheet" href="assets/css/modal.css">
 </head>
 <body>
-    <!-- login page -->
+    <!-- change password page -->
     <div id="wrapper">
         <div class="content">
             <div class="auth-content">
                 <div class="logo"><a href="./"><img src="assets/res/images/logo/cinebazar.png" alt="icon"></a></div>
-                <div class="text lang" key="enter_email_and_password">Enter Email and Password</div>
-                <form id="loginfor" method="post">
+                <div class="text lang" key="create_new_password">Create new password</div>
+                <form id="verifyrecoverfor" method="post">
                     <div class="auth-field">
-                        <input type="text" name="loginEmail" required>
-                        <span class="fas fa-user"></span>
-                        <label class="lang" key="email_or_phone">Email or Phone</label>
-                    </div>
-                    <div class="auth-field">
-                        <input type="password" name="loginPass" class="input-pass" required>
+                        <input type="password" name="verifyRecPass" required>
                         <span class="fas fa-lock"></span>
-                        <label class="lang" key="enter_password">Enter Password</label>
-                        <i class="fas fa-eye icon-pass"></i>
+                        <label class="lang" key="new_password">New password</label>
                     </div>
-                    <button class="auth-btn lang" key="login">Login</button>
+                    <div class="auth-field">
+                        <input type="password" name="verifyRecRePass" required>
+                        <span class="fas fa-lock"></span>
+                        <label class="lang" key="re_enter_password">Re enter password</label>
+                    </div>
+                    <button class="auth-btn lang" key="update">Update</button>
                     <div class="auth-link">
-                        <a href="recover" class="lang" key="reset_password">Reset Password</a>
-                        <span class="lang" key="or">or</span>
-                        <a href="register" class="lang" key="register">Register</a>
+                        <a href="support" class="lang" key="contact_us">Contact Us</a>
+						<span class="lang" key="or"></span>
+						<a href="login" class="lang" key="login">Login</a>
                     </div>
                 </form>
             </div>
@@ -52,11 +58,11 @@
         <?php include "includes/footer.php" ?>
     </div>
     <?php include "includes/modal.php" ?>
-
+    
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/app.js"></script>
 	<script type="text/javascript">
-        var backUrl = '<?php if(isset($_GET['url'])) echo $_GET['url']; ?>';
+        var auth = '<?php echo $_GET['recAuth'];?>';
     </script>
 </body>
 </html>

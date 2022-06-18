@@ -1,0 +1,92 @@
+/* modal css */
+.modal-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 450px;
+    max-width: 90%;
+    max-height: 90%;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 10px;
+    background: #ecf0f3;
+    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+    transition: 0.5s;
+    transform:translate(-50%,-50%) scale(0);
+}
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%,-50%) scale(1);
+    transition: opacity 0.3s ease-in-out, top 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+.blur-content {
+    filter: blur(25px);
+    pointer-events: none;
+    user-select: none;
+    transition: 0.5s;
+    user-select: none;
+}
+.modal-head {
+    color: white;
+    padding: 15px;
+    font-size: 19px;
+    text-align: center;
+    font-weight: normal;
+    background: #27ae60;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .20);
+}
+.modal-head .fa-times {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #e8f7fc;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-text {
+    padding: 20px 20px 0;
+    text-align: center;
+    font-size: 17px;
+}
+.modal-action {
+    width: 150px;
+    max-width: 50%;
+    padding: 7px 15px;
+    color: #27ae60;
+    cursor: pointer;
+    font-size: 17px;
+    border: none;
+    margin: 25px auto;
+    outline: none;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #cbced1, -5px -5px 10px #ffffff;
+    transition: all ease 0.5s;
+}
+.modal-action:focus {
+    transition: 0.5s;
+    box-shadow: inset 2px 2px 5px #cbced1, inset -5px -5px 10px #ffffff;
+}
+.modal-loading {
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50% !important;
+    cursor: none;
+    pointer-events: none;
+    border-left:  3px solid #cbced1;
+    border-top: 3px solid #27ae60;
+    border-right: 3px solid #cbced1;
+    border-bottom: 3px solid #27ae60;
+    animation: rotate 1.4s ease 0.5s infinite;
+    transition: 0.4s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(-360deg);
+    }
+}

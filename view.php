@@ -1,6 +1,6 @@
-<?php ob_start(); include_once('assets/php/database.php');
-    if(!isset($_SESSION['email'])){
-        header("location: register.php");
+<?php include_once('config/config.php');
+    if(!isset($_SESSION['email'])) {
+        header("location: register");
     } else {
         $user = $_SESSION['id'];
         $view_id = $_POST['view_id'];

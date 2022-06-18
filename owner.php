@@ -1,12 +1,6 @@
-<?php ob_start(); include_once('assets/php/database.php');
-    if(!isset($_SESSION['email'])){
-        header("location: register.php");
-    } else {
-        if ($_SESSION['type'] == "user") {
-            header("location: ./");
-        } else {
-            $user = $_SESSION['id'];
-        }
+<?php include_once('config/config.php');
+    if(isset($_SESSION['email']) || $_SESSION['user_type'] == "visitor") {
+        header("location: ./");
     }
 ?>
 
@@ -29,7 +23,9 @@
     <!-- navbar section -->
     <header class="sticky">
         <!-- navbar logo -->
-        <a href="./"><img src="assets/images/favicon.ico" alt="logo" class="logo"/></a>
+        <a href="./">
+            <img src="assets/images/favicon.ico" alt="logo" class="logo"/>
+        </a>
 
         <!-- navbar search -->
         <form action="search.php" class="nav_search" method="post">

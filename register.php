@@ -1,78 +1,57 @@
-<?php include_once('assets/php/database.php');
-    if(isset($_SESSION['email'])){
-        header("location: index.php");
+<?php include_once('config/config.php');
+    if(isset($_SESSION['email'])) {
+        // user email found in session
+        // redirect user to home page
+        header("location: ./");
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Salekur Rahaman"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="">
     <title>Register - Cinebazar</title>
-
+    
     <!-- css, js and font design-->
-    <link rel="stylesheet" type="text/css" href="assets/css/register.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bree+Serif">
-    <script type="text/javascript" src="assets/js/functions.js"></script>
+    <link rel="icon" href="assets/res/images/logo/icon_circle.png">
+    <link rel="stylesheet" href="assets/fonts/fontawesome/css/all.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
 </head>
 <body>
-  	<div class="container">
-    	<div class="left">
-    		<div class="left_text"></div>
-    	</div>
-    	<div class="right">
-      		<div class="register">
-        		<form id="register_form" action="" method="post">
-          			<h2>Create New Account</h2>
-          			<p>Full Name *</p>
-          			<input type="text" name="register_user_name" placeholder="Enter full name" required>
-          			<p>Username *</p>
-          			<input type="Email" name="register_user_email" placeholder="Enter email" required>
-          			<p>Birth Date *</p>
-                <input type="Date" name="register_user_date" required>
-                <p>Account *</p>
-                <select name="register_user_type" required>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                </select>
-                <p>Phone No *</p>
-          			<input type="text" name="register_user_phone" placeholder="Enter phone number" required>
-          			<p>Password *</p>
-          			<input type="Password" name="register_user_password" placeholder="Enter password" required>
-          			<input id="register_submit" type="submit" value="Register">
-          			<h5 style="font-size: 11px;"><i>* required</i></h5>
-          			<h3 style="font-size: 16px;">Already Registered? <a href="login.php">Login</a></h3>
-                    <h3 style="font-size: 13px;"><a href="" target="_blank">Terms & conditions</a></h3>
-        		</form>
+    <!-- register page -->
+    <div id="wrapper">
+        <div class="content">
+            <div class="auth-content">
+                <div class="logo"><a href="./"><img src="assets/res/images/logo/cinebazar.png" alt="icon"></a></div>
+                <div class="text lang" key="create_new_account">Create New Account</div>
+                <form id="registerfor" method="post">
+                    <div class="auth-field">
+                        <input type="text" name="regEmail" required>
+                        <span class="fas fa-envelope"></span>
+                        <label class="lang" key="enter_email">Enter Email</label>
+                    </div>
+                    <button class="auth-btn lang" key="register">Register</button>
+                    <div class="auth-link">
+                        <a href="support" class="lang" key="contact_us">Contact Us</a>
+                        <span class="lang" key="or">or</span>
+                        <a href="login" class="lang" key="login">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <?php include "includes/footer.php" ?>
+    </div>
+    <?php include "includes/modal.php" ?>
 
-                <?php
-                    if (isset($_POST['register_user_name'])) {
-                        $name = $_POST['register_user_name'];
-                        $email = $_POST['register_user_email'];
-                        $birth = $_POST['register_user_date'];
-                        $type = $_POST['register_user_type'];
-                        $phone = $_POST['register_user_phone'];
-                        $password = $_POST['register_user_password'];
-                        
-                        $search = "SELECT * FROM users WHERE email = '$email'";
-                        $account = mysqli_query($conn, $search);
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/js/app.js"></script>
 
-                        if(mysqli_num_rows($account) > 0) {
-                            echo "<p style='text-align:center; color:black; padding: 5px; margin-top: 10px; border-radius: 4px; background-color: red;'>Account already exist</p>";
-                        } else {
-                            $sql = "INSERT INTO users (name, email, birth, type, phone, password) VALUES('$name', '$email', '$birth', '$type', '$phone', '$password')";
-                    
-                            if(mysqli_query($conn, $sql)) {
-                                header("location: assets/php/logout.php");
-                            } else {
-                                echo "<p style='text-align:center; color:red; padding: 5px; margin-top: 10px; border-radius: 4px; background-color: #bbb;'>Registration Failed</p>";
-                            }
-                        }
-                    }
-                ?>
-      		</div>
-    	</div>
-  	</div>
 </body>
 </html>

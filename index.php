@@ -1,12 +1,6 @@
-<?php ob_start(); include_once('assets/php/database.php');
-    if(!isset($_SESSION['email'])){
-        header("location: register.php");
-    } else {
-        if ($_SESSION['type'] == "admin") {
-            header("location: admin.php");
-        } else {
-            $user = $_SESSION['id'];
-        }
+<?php include_once('config/config.php');
+    if(isset($_SESSION['email'])) {
+        header("location: ./");
     }
 ?>
 
