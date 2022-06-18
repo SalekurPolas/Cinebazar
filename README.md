@@ -1,2 +1,2 @@
 # CinebazarWebsite
-CSE311 Database class project
+CSE311 MySQL Project with AJAX
